@@ -57,7 +57,6 @@ BOOL Snake::Move(CPoint food)
     if (CheckFood(food))
     {
         //吃到食物
-        //TODO: 增加食物的生成
         m_bGrow = TRUE;
     }
     else
@@ -200,11 +199,5 @@ void Snake::AutoDirectionChange(CPoint food)
             m_Direction = rand() % 2 == 0 ? UP : DOWN;
         }
     }
-}
-
-vector<CPoint>& Snake::GetBody()
-{
-    // TODO: 在此处插入 return 语句
-    return m_vBody;
 }
   

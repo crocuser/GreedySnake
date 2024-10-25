@@ -20,7 +20,6 @@ public:
     CPoint GenerateFood();
     CPoint GenerateFood(Snake& snake);
     void AutoDirectionChange(CPoint food);
-    vector<CPoint>& GetBody();
 public:
     // 在类定义中增加一个变量--限制方向变更频率 
     DWORD m_LastDirectionChangeTime = 0;

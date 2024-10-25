@@ -111,13 +111,12 @@ BOOL CGreedySnakeDlg::OnInitDialog()
     CWnd* pWnd = GetDlgItem(IDC_GAMEREA);
     pWnd->SetWindowPos(NULL, 0, 0, GAMEAREA_WIDTH, GAMEAREA_HEIGHT, SWP_NOZORDER | SWP_NOMOVE);//设置游戏区域大小
 
+    //初始化
     m_nScore = 0;
-    //初始化难度
     CString strDifficult;
     strDifficult.Format(_T("%d"), m_nScore / 3);
     m_difficult.SetWindowText(strDifficult);
 
-    //初始化分数
     CString strScore;
     strScore.Format(_T("%d"), m_nScore);
     m_score.SetWindowText(strScore);
@@ -181,7 +180,6 @@ HCURSOR CGreedySnakeDlg::OnQueryDragIcon()
 }
 
 
-
 void CGreedySnakeDlg::OnStart()
 {
     // TODO: 在此添加命令处理程序代码
@@ -212,13 +210,9 @@ void CGreedySnakeDlg::OnStart()
     strScore2.Format(_T("%d"), m_nScore2);
     m_score2.SetWindowText(strScore2);
 
-    if (m_bIsSignle)
-    {
-    }
-    else
+    if (!m_bIsSignle)
     {
         m_Snake2.Init(15);
-        
         m_Food = m_Snake1.GenerateFood(m_Snake2);//生成食物时会检查是否有蛇身碰撞
     }
     SetTimer(1, m_Snake1.m_DirectionChangeInterval, NULL);//设置定时器，每隔1000ms刷新一次界面
